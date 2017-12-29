@@ -1,11 +1,11 @@
 import cv2
 import numpy as np
 from matplotlib import pyplot as plt
+import os
 
-
-
-image   = cv2.imread('images/kai_matt.jpg', 0)    # read in image - convert to grayscale
+image   = cv2.imread(os.getcwd()+'/images/'+input("Enter path to file: "), 0)    # read in image - convert to grayscale
 # plt.show()
+
 image   = cv2.bilateralFilter(image, 9, 75, 75)   # bilaterally filters the image to reduce noise, blur, and maintain edges
 
 gauss_thresh = cv2.adaptiveThreshold(image,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,\
